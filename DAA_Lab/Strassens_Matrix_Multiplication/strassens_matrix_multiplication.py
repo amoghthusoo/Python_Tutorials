@@ -1,0 +1,367 @@
+# Q3(b). Strassen's Matrix Multiplication (2^n X 2^n)
+
+class Strassens_Matix:
+
+    def divide_matrix(self, matrix: list[list[int]], part: int) -> list[list[int]]:
+
+        size: int = len(matrix) // 2
+        out_matrix: list[list[int]] = [
+            [0 for _ in range(size)] for _ in range(size)]
+
+        if (part == 1):
+
+            i: int = 0
+            x: int = 0
+            while (i < size):
+
+                j: int = 0
+                y: int = 0
+                while (j < size):
+
+                    out_matrix[x][y] = matrix[i][j]
+
+                    j += 1
+                    y += 1
+
+                i += 1
+                x += 1
+
+        elif (part == 2):
+            i = 0
+            x = 0
+            while (i < size):
+
+                j = size
+                y = 0
+                while (j < len(matrix)):
+
+                    out_matrix[x][y] = matrix[i][j]
+
+                    j += 1
+                    y += 1
+
+                i += 1
+                x += 1
+
+        elif (part == 3):
+
+            i = size
+            x = 0
+            while (i < len(matrix)):
+
+                j = 0
+                y = 0
+                while (j < size):
+
+                    out_matrix[x][y] = matrix[i][j]
+
+                    j += 1
+                    y += 1
+
+                i += 1
+                x += 1
+
+        else:
+
+            i = size
+            x = 0
+            while (i < len(matrix)):
+
+                j = size
+                y = 0
+                while (j < len(matrix)):
+
+                    out_matrix[x][y] = matrix[i][j]
+
+                    j += 1
+                    y += 1
+
+                i += 1
+                x += 1
+
+        return out_matrix
+
+    def combine_matrix(self, c11: list[list[int]], c12: list[list[int]], c21: list[list[int]], c22: list[list[int]]) -> list[list[int]]:
+
+        size: int = len(c11) * 2
+        out_matrix: list[list[int]] = [
+            [0 for _ in range(size)] for _ in range(size)]
+
+        x: int = 0
+        i: int = 0
+
+        while (i < len(c11)):
+
+            j: int = 0
+            y: int = 0
+            while (j < len(c11)):
+
+                out_matrix[x][y] = c11[i][j]
+
+                j += 1
+                y += 1
+
+            i += 1
+            x += 1
+
+        i = 0
+        x = 0
+        while (i < len(c12)):
+
+            j = 0
+            y = len(c11)
+            while (j < len(c12)):
+
+                out_matrix[x][y] = c12[i][j]
+
+                j += 1
+                y += 1
+
+            i += 1
+            x += 1
+
+        i = 0
+        x = len(c11)
+        while (i < len(c21)):
+
+            j = 0
+            y = 0
+            while (j < len(c21)):
+
+                out_matrix[x][y] = c21[i][j]
+
+                j += 1
+                y += 1
+
+            i += 1
+            x += 1
+
+        i = 0
+        x = len(c11)
+        while (i < len(c22)):
+
+            j = 0
+            y = len(c11)
+            while (j < len(c22)):
+
+                out_matrix[x][y] = c22[i][j]
+
+                j += 1
+                y += 1
+
+            i += 1
+            x += 1
+
+        return out_matrix
+
+    def add_matrix(self, matrix1: list[list[int]], matrix2: list[list[int]], sub_mode: bool = False) -> list[list[int]]:
+
+        out_matrix: list[list[int]] = [
+            [0 for _ in range(len(matrix1))] for _ in range(len(matrix1))]
+
+        i: int = 0
+        while (i < len(matrix1)):
+
+            j: int = 0
+            while (j < len(matrix1)):
+
+                if (not sub_mode):
+                    out_matrix[i][j] = matrix1[i][j] + matrix2[i][j]
+                else:
+                    out_matrix[i][j] = matrix1[i][j] - matrix2[i][j]
+                j += 1
+            i += 1
+
+        return out_matrix
+
+    def multiply_matrix(self, matrix1: list[list[int]], matrix2: list[list[int]]) -> list[list[int]]:
+
+        if (len(matrix1) == 2):
+
+            D: int = (matrix1[0][0] + matrix1[1][1]) * \
+                (matrix2[0][0] + matrix2[1][1])
+            E: int = (matrix1[1][0] + matrix1[1][1]) * matrix2[0][0]
+            F: int = (matrix1[0][0]) * (matrix2[0][1] - matrix2[1][1])
+            G: int = (matrix1[1][1]) * (matrix2[1][0] - matrix2[0][0])
+            H: int = (matrix1[0][0] + matrix1[0][1]) * (matrix2[1][1])
+            M: int = (matrix1[1][0] - matrix1[0][0]) * \
+                (matrix2[0][0] + matrix2[0][1])
+            P: int = (matrix1[0][1] - matrix1[1][1]) * \
+                (matrix2[1][0] + matrix2[1][1])
+
+            c11: int = D + G - H + P
+            c12: int = F + H
+            c21: int = E + G
+            c22: int = D + F - E + M
+
+            out_matrix: list[list[int]] = [[c11, c12], [c21, c22]]
+
+            return out_matrix
+
+        else:
+
+            A11: list[list[int]] = self.divide_matrix(matrix1, 1)
+            A12: list[list[int]] = self.divide_matrix(matrix1, 2)
+            A21: list[list[int]] = self.divide_matrix(matrix1, 3)
+            A22: list[list[int]] = self.divide_matrix(matrix1, 4)
+
+            B11: list[list[int]] = self.divide_matrix(matrix2, 1)
+            B12: list[list[int]] = self.divide_matrix(matrix2, 2)
+            B21: list[list[int]] = self.divide_matrix(matrix2, 3)
+            B22: list[list[int]] = self.divide_matrix(matrix2, 4)
+
+            D: list[list[int]] = self.multiply_matrix(self.add_matrix(A11, A22), self.add_matrix(B11, B22))
+            E: list[list[int]] = self.multiply_matrix(self.add_matrix(A21, A22), B11)
+            F: list[list[int]] = self.multiply_matrix(A11, self.add_matrix(B12, B22, True))
+            G: list[list[int]] = self.multiply_matrix(A22, self.add_matrix(B21, B11, True))
+            H: list[list[int]] = self.multiply_matrix(self.add_matrix(A11, A12), B22)
+            M: list[list[int]] = self.multiply_matrix(self.add_matrix(A21, A11, True), self.add_matrix(B11, B12))
+            P: list[list[int]] = self.multiply_matrix(self.add_matrix(A12, A22, True), self.add_matrix(B21, B22))
+
+            c11: list[list[int]] = self.add_matrix(self.add_matrix(self.add_matrix(D, G), H, True), P)
+            c12: list[list[int]] = self.add_matrix(F, H)
+            c21: list[list[int]] = self.add_matrix(E, G)
+            c22: list[list[int]] = self.add_matrix(self.add_matrix(self.add_matrix(D, F), E, True), M)
+
+            out_matrix: list[list[int]] = self.combine_matrix(c11, c12, c21, c22)
+
+            return out_matrix
+
+    def display_matrix(self, matrix: list[list[int]]) -> None:
+        i: int = 0
+        while (i < len(matrix)):
+
+            j: int = 0
+            while (j < len(matrix)):
+
+                print(matrix[i][j], end=" ")
+
+                j += 1
+
+            print()
+            i += 1
+
+
+def main() -> None:
+
+    # mat1 = [
+    #     [4, 0],
+    #     [6, 2]
+    # ]
+    # mat2 = [
+    #     [1, 2],
+    #     [7, 1]
+    # ]
+
+    # mat1 : list[list[int]] = [
+    #     [2, 4, 3, 1],
+    #     [1, 4, 2, 6],
+    #     [2, 4, 1, 3],
+    #     [3, 1, 4, 2]
+    # ]
+
+    # mat2 : list[list[int]] = [
+    #     [2, 1, 3, 2],
+    #     [5, 1, 2, 1],
+    #     [2, 1, 1, 3],
+    #     [0, 2, 4, 2]
+    # ]
+
+    # mat1 = [
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8]
+    # ]
+
+    # mat2 = [
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8],
+    #     [1, 2, 3, 4, 5, 6, 7, 8]
+    # ]
+
+    # mat1 = [
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)]
+    #     ]
+
+    # mat2 = [
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)],
+    #         [random.randint(1, 100) for _ in range(8)]
+    #     ]
+
+    # mat1 = [
+    #     [1, 2],
+    #     [3, 4]
+    # ]
+
+    # mat2 = [
+    #     [4, 3],
+    #     [2, 1]
+    # ]
+
+    size: int = int(input("Enter the size of matrix : "))
+
+    mat1 = [[0 for _ in range(size)] for _ in range(size)]
+    mat2 = [[0 for _ in range(size)] for _ in range(size)]
+
+    print()
+    i: int = 0
+    while (i < size):
+
+        j: int = 0
+        while (j < size):
+
+            mat1[i][j] = int(input(f"Enter element (mat1[{i}][{j}]) : "))
+
+            j += 1
+        i += 1
+
+    print()
+    i = 0
+    while (i < size):
+
+        j = 0
+        while (j < size):
+
+            mat2[i][j] = int(input(f"Enter element (mat2[{i}][{j}]) : "))
+
+            j += 1
+        i += 1
+
+    obj: Strassens_Matix = Strassens_Matix()
+    out: list[list[int]] = obj.multiply_matrix(mat1, mat2)
+
+    print("\nMatrix 1 : ")
+    obj.display_matrix(mat1)
+    print("\nMatrix 2 : ")
+    obj.display_matrix(mat2)
+    print("\nStrassen's Matrix Multiplication: ")
+    obj.display_matrix(out)
+
+
+if (__name__ == "__main__"):
+    print()
+    main()
+    print()
