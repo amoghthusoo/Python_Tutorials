@@ -1,0 +1,31 @@
+class Test:
+
+    def __init__(self):
+
+        self.s = [
+            [None, None, 2, None, None, 3],
+            [None, None, None, None, None, None],
+            [None, None, None, None, None, None],
+            [None, None, None, None, None, 4],
+            [None, None, None, None, None, None],
+            [None, None, None, None, None, None],    
+        ]
+        self.a = [1, 2, 3, 4, 5, 6]
+
+    def insert_brackets(self, lower_bound, upper_bound):
+        self.a.insert(self.a.index(lower_bound), -1)
+        self.a.insert(self.a.index(upper_bound) + 1, -1)
+        
+    def construct(self, lower_bound, upper_bound):
+        
+        partition = self.s[lower_bound - 1][upper_bound - 1]
+        
+        if(partition - lower_bound + 1 >= 2):
+            self.insert_brackets(lower_bound, partition)
+
+        if(upper_bound - partition + 1 >= 2):
+            self.insert_brackets(partition, upper_bound)
+
+
+find_partition(None, None)
+# print(a)
