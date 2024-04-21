@@ -1,3 +1,5 @@
+# Q4 :- All Pair Shortest Path
+
 from copy import deepcopy
 
 class All_Pair_Shortest_Path:
@@ -11,7 +13,28 @@ class All_Pair_Shortest_Path:
         self.end_node = end_node - 1
 
         self.construct()
-        return self.find_optimal_path()
+
+        negative_cycle_nodes = []
+        i = 0
+        while(i < len(self.D)):
+            
+            if(self.D[i][i] < 0):
+                negative_cycle_nodes.append(i)
+            i += 1
+
+        i = 0
+        while(i < len(negative_cycle_nodes)):
+            
+            negative_cycle_nodes[i] += 1
+            
+            i += 1
+
+        if(len(negative_cycle_nodes) > 0):
+            print("\nFound negative cycle at node(s) : ", end = "")
+            print(negative_cycle_nodes)
+            return None
+        else:
+            return self.find_optimal_path()
 
     def construct(self):
         
@@ -41,10 +64,11 @@ class All_Pair_Shortest_Path:
                     j += 1
                 i += 1
 
-
             d += 1
 
             D_prev = deepcopy(D_current)
+
+        self.D = deepcopy(D_prev)
 
         # print(D_prev)
         # print(self.P)
@@ -118,8 +142,21 @@ def main():
     obj = All_Pair_Shortest_Path(D)
     path = obj.find_path(start_node, end_node)
 
-    print()
-    print(f"Optimal Path : {path}")
+    if(path != None):
+        print()
+        print(f"Optimal Path : ", end = "")
+        
+        i = 0
+        while(i < len(path)):
+            print(path[i], end = "")
+
+            if(i != len(path) - 1):
+                print(" -> ", end = "")
+            else:
+                print()
+
+            i += 1
+
 
 if(__name__ == "__main__"):
     print()

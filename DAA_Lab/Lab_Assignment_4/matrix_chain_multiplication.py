@@ -1,3 +1,5 @@
+# Q2 :- Matrix Chain Multiplication
+
 from copy import deepcopy
 from math import pow
 
@@ -108,13 +110,13 @@ def main() -> None:
 
     obj = Matrix_Chain_Multiplication(p)
     out = obj.get_result()
-    print("\nResult is given by : " + out)
-    print(obj.m)
-    print(obj.s)
+    print("\nOptimal Parenthesization : " + out)
+    
+    # print(obj.m)
+    # print(obj.s)
     
 
 if(__name__ == "__main__"):
     print()
     main()
     print()
-    

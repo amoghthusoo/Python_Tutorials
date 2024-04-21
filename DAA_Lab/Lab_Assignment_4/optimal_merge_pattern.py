@@ -1,3 +1,5 @@
+# Q1 :- Optimal Merge Pattern
+
 class OptimalMergePattern:
 
     def bubbleSort(self, arr):
@@ -33,7 +35,7 @@ def main():
     
     obj = OptimalMergePattern()
     result = obj.calculateOptimalMergePattern(arr)
-    print(f"Minimum space required is : {result}")
+    print(f"\nMinimum space required is : {result}")
     
 
 if(__name__ == "__main__"):
