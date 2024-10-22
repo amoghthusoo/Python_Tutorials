@@ -231,9 +231,6 @@ def main():
     # for e in g1.logs:
     #     print(e)
     
-
-    
-
 if(__name__ == "__main__"):
     print()
     main()

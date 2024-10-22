@@ -1,17 +1,28 @@
 import pyautogui as pag
-from time import sleep
+from time import sleep, ctime
 
 sentence = ""
 letter_list = list(sentence)
 
 pag.hotkey("alt", "tab")
 
-i = 1057
-while True:
+sleep(1)
+delay = 0.1
+
+# i = 1
+for i in range(1, 21):
     
     pag.write(f"{i}) ")
     
+    # for letter in ctime():
+    #     pag.write(letter)
+    #     sleep(delay)
+    
+    pag.write(" ")
+    for letter in letter_list:
+        pag.write(letter)
+        sleep(delay)
 
     pag.press("enter") 
 
-    i += 1
+    # i += 1

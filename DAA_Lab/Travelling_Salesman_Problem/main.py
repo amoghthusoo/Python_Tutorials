@@ -61,15 +61,19 @@ class Travelling_Salesman:
                 i += 1
         
             j += 1
-
-
+        
+        return matrix
 
 def main():
     
+    inf = int(2 ** 31 -1)
+
     matrix = [
-        [1, 5, 2],
-        [4, 8, 3],
-        [7, 9, 2]
+        [inf, 2, 3, 22, 1],
+        [1, inf, 24, 2, 3],
+        [3, 25, inf,3, 22],
+        [2, 3, 1, inf, 24],
+        [25, 22, 2, 1, inf]
     ]
     obj = Travelling_Salesman(matrix)
 

@@ -61,7 +61,7 @@ class Matrix_Chain_Multiplication:
         
 def main() -> None:
     
-    p = [7, 1, 5, 4, 2]
+    p = [12, 6, 8, 15, 7]
     obj = Matrix_Chain_Multiplication(p)
     obj.construct()
     
