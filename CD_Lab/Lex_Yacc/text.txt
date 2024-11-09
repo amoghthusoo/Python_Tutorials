@@ -1,0 +1,3 @@
+Hello
+I had made a lex program.
+a quick brown fox jumps over the lazy dog.
