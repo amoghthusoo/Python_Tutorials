@@ -47,8 +47,6 @@ def main():
 
     plot_translation(x_coordinates, y_coordinates, _x_coordinates, _y_coordinates)
 
-    
-
 if(__name__ == "__main__"):
     print()
     main()
