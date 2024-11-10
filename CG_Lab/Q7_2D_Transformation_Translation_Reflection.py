@@ -1,17 +1,18 @@
 import matplotlib.pyplot as plt
 
-def get_scaled_coordinates(x, y, sx, sy):    
-    _x = x * sx
-    _y = y * sy
+def get_reflected_coordinates(x, y):    
+    _x = -x
+    _y = y
     return _x, _y
 
-def plot_translation(x_coordinates, y_coordinates, _x_coordinates, _y_coordinates):
+def plot_reflection(x_coordinates, y_coordinates, _x_coordinates, _y_coordinates):
     
-    
-    plt.plot(x_coordinates, y_coordinates, color = "purple", label = "Before Scaling")
-    plt.plot(_x_coordinates, _y_coordinates, color = "blue", label = "After Scaling")
+    plt.plot(x_coordinates, y_coordinates, color = "purple", label = "Original Figure")
+    plt.plot(_x_coordinates, _y_coordinates, color = "blue", label = "Reflected Figure")
     plt.axis("equal")
-    plt.title("2D Transformations (Scaling)", fontsize = 16)
+    plt.title("2D Transformations (Reflection)", fontsize = 16)
+    plt.axhline(color = "black")
+    plt.axvline(color = "black")
     plt.legend()
     plt.show()
 
@@ -26,10 +27,6 @@ def main():
         x_coordinates.append(int(temp[0]))
         y_coordinates.append(int(temp[1]))
 
-    print()
-    sx = float(input("Enter sx : "))
-    sy = float(input("Enter sy : "))
-
     x_coordinates.append(x_coordinates[0])
     y_coordinates.append(y_coordinates[0])
 
@@ -39,7 +36,7 @@ def main():
     i = 0
     while(i < len(x_coordinates)):
 
-        _x, _y = get_scaled_coordinates(x_coordinates[i], y_coordinates[i], sx, sy)        
+        _x, _y = get_reflected_coordinates(x_coordinates[i], y_coordinates[i])        
         _x_coordinates.append(_x)
         _y_coordinates.append(_y)
         
@@ -48,8 +45,8 @@ def main():
     print()
     print("Plotting, please wait ...")
     
-    plot_translation(x_coordinates, y_coordinates, _x_coordinates, _y_coordinates)
-    
+    plot_reflection(x_coordinates, y_coordinates, _x_coordinates, _y_coordinates)
+
 if(__name__ == "__main__"):
     print()
     main()
