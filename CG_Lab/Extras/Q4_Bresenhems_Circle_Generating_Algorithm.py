@@ -4,7 +4,7 @@ def get_circle_coordinates(r):
     
     x = 0
     y = r
-    p = 1 - r
+    p = 3 - r * 2
 
     x_coordinates = [x]
     y_coordinates = [y]
@@ -13,7 +13,7 @@ def get_circle_coordinates(r):
 
         if(p < 0):
             x += 1
-            p += (2 * x) + 1
+            p += (4 * x) + 6
 
             if(x < y):
                 x_coordinates.append(x)
@@ -24,7 +24,7 @@ def get_circle_coordinates(r):
         elif(p >= 0):
             x += 1
             y -= 1
-            p += (-2 * y) + (2 * x) + 1
+            p += 4 * (x - y) + 10
 
             if(x < y):
                 x_coordinates.append(x)

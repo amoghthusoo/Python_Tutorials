@@ -142,11 +142,11 @@ def main():
     # x2 = 11
     # y2 = 4
 
-    temp = input("Enter x_min, y_min, separated by a space : ").split()
+    temp = input("Enter x_min, y_min separated by a space : ").split()
     x_min = int(temp[0])
     y_min = int(temp[1])
     
-    temp = input("Enter x_max, y_max, separated by a space : ").split()
+    temp = input("Enter x_max, y_max separated by a space : ").split()
     x_max = int(temp[0])
     y_max = int(temp[1])
     

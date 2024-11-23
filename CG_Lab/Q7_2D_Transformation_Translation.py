@@ -20,7 +20,7 @@ def main():
     x_coordinates = []
     y_coordinates = []
     
-    print("Enter the coordinates in clockwise or counter clockwise.")
+    print("Enter the coordinates in clockwise or counter clockwise manner.")
     for i in range(1, 5):
         temp = input(f"Enter x{i}, y{i} separated by a space : ").split()
         x_coordinates.append(int(temp[0]))

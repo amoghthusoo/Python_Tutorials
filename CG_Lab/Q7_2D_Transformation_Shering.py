@@ -26,7 +26,7 @@ def main():
         y_coordinates.append(int(temp[1]))
 
     print()
-    shx = float(input("Enter dx : "))
+    shx = float(input("Enter shx : "))
 
     x_coordinates.append(x_coordinates[0])
     y_coordinates.append(y_coordinates[0])

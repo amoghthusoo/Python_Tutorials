@@ -7,10 +7,10 @@ letter_list = list(sentence)
 pag.hotkey("alt", "tab")
 
 sleep(1)
-delay = 0.1
+delay = 0.2
 
 # i = 1
-for i in range(1, 21):
+for i in range(1, 1000):
     
     pag.write(f"{i}) ")
     

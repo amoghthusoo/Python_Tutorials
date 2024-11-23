@@ -1,3 +1,10 @@
-Hello
-I had made a lex program.
-a quick brown fox jumps over the lazy dog.
+def add(a, b):
+    r = a + b
+    return r
+
+a = 5
+b = 6
+add(a, b)
+
+if(a + b == 11):
+    print("reaching!!")
