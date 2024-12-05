@@ -90,6 +90,7 @@ def main():
     x2 = float(point[0])
     y2 = float(point[1])
 
+    print()
     print("Plotting, please wait ...")
     x_coordinates, y_coordinates = get_line_coordinates(x1, y1, x2, y2)
     # print(x_coordinates)

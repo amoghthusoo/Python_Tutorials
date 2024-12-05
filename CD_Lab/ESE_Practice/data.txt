@@ -1,0 +1,12 @@
+def add(a, b):
+    r = a + b
+    return r
+
+a = 2
+b = 3
+r = add(a, b)
+
+if(r == 3):
+    print(r)
+elif(r == 4):
+    print("four")

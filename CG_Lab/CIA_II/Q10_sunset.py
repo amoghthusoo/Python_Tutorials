@@ -47,17 +47,6 @@ def draw_sunset():
     plt.fill(boundary_x, boundary_y, color = "#106d79")
     plt.fill(mountains_x, mountains_y, color = "#2a913b")
     plot_circle(85, 35, 7)
-    
-    # plt.plot([85, 85], [43, 47], color = "yellow")
-    # plt.plot([85, 85], [27, 23], color = "yellow")
-    # plt.plot([93, 97], [35, 35], color = "yellow")
-    # plt.plot([77, 73], [35, 35], color = "yellow")
-
-    # plt.plot([90.95, 93.75], [40.95, 43.75], color = "yellow")  
-    # plt.plot([79.05, 76.25], [40.95, 43.75], color = "yellow")  
-    # plt.plot([90.95, 93.75], [29.05, 26.25], color = "yellow")  
-    # plt.plot([79.05, 76.25], [29.05, 26.25], color = "yellow") 
-    
     plt.axis("equal")
     plt.show()
 

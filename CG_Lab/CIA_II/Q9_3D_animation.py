@@ -9,7 +9,6 @@ from kivy.graphics import RenderContext, Callback, PushMatrix, PopMatrix, \
     Color, Translate, Rotate, Mesh, UpdateNormalMatrix
 from objloader import ObjFile
 
-
 class Renderer(Widget):
     def __init__(self, **kwargs):
         self.canvas = RenderContext(compute_normal_mat=True)

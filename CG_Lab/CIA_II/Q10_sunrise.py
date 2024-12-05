@@ -40,7 +40,6 @@ def draw_sunrise():
     
     boundary_x = [0, 100, 100, 0, 0]
     boundary_y = [0, 0, 50, 50, 0]
-
     mountains_x = [0, 25, 50, 75, 100, 0]
     mountains_y = [0, 20, 0, 20, 0, 0]
 

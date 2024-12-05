@@ -16,7 +16,6 @@ def reflect_triangular_polygon():
         
         refl_triangle_x.append(triangle_y[i] - 2)
         refl_triangle_y.append(triangle_x[i] + 2)
-
         i += 1
 
     plt.plot(triangle_x, triangle_y, color = "red", label = "original figure")

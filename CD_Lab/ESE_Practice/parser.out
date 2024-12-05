@@ -1,0 +1,100 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> E
+Rule 1     E -> E PLUS T
+Rule 2     E -> E MINUS T
+Rule 3     E -> T
+Rule 4     T -> NUMBER
+
+Terminals, with rules where they appear
+
+MINUS                : 2
+NUMBER               : 4
+PLUS                 : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+E                    : 1 2 0
+T                    : 1 2 3
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . E
+    (1) E -> . E PLUS T
+    (2) E -> . E MINUS T
+    (3) E -> . T
+    (4) T -> . NUMBER
+
+    NUMBER          shift and go to state 3
+
+    E                              shift and go to state 1
+    T                              shift and go to state 2
+
+state 1
+
+    (0) S' -> E .
+    (1) E -> E . PLUS T
+    (2) E -> E . MINUS T
+
+    PLUS            shift and go to state 4
+    MINUS           shift and go to state 5
+
+
+state 2
+
+    (3) E -> T .
+
+    PLUS            reduce using rule 3 (E -> T .)
+    MINUS           reduce using rule 3 (E -> T .)
+    $end            reduce using rule 3 (E -> T .)
+
+
+state 3
+
+    (4) T -> NUMBER .
+
+    PLUS            reduce using rule 4 (T -> NUMBER .)
+    MINUS           reduce using rule 4 (T -> NUMBER .)
+    $end            reduce using rule 4 (T -> NUMBER .)
+
+
+state 4
+
+    (1) E -> E PLUS . T
+    (4) T -> . NUMBER
+
+    NUMBER          shift and go to state 3
+
+    T                              shift and go to state 6
+
+state 5
+
+    (2) E -> E MINUS . T
+    (4) T -> . NUMBER
+
+    NUMBER          shift and go to state 3
+
+    T                              shift and go to state 7
+
+state 6
+
+    (1) E -> E PLUS T .
+
+    PLUS            reduce using rule 1 (E -> E PLUS T .)
+    MINUS           reduce using rule 1 (E -> E PLUS T .)
+    $end            reduce using rule 1 (E -> E PLUS T .)
+
+
+state 7
+
+    (2) E -> E MINUS T .
+
+    PLUS            reduce using rule 2 (E -> E MINUS T .)
+    MINUS           reduce using rule 2 (E -> E MINUS T .)
+    $end            reduce using rule 2 (E -> E MINUS T .)
+

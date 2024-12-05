@@ -8,8 +8,8 @@ def diamond_in_rectangle(l, b):
     diamond_x = [l/2, l, l/2, 0, l/2]
     diamond_y = [0, b/2, b, b/2, 0]
 
-    plt.plot(rectangle_x, rectangle_y, color = "purple", label = "rectangle")
-    plt.plot(diamond_x, diamond_y, color = "blue", label = "diamond")
+    plt.plot(rectangle_x, rectangle_y, color = "red", label = "rectangle")
+    plt.plot(diamond_x, diamond_y, color = "green", label = "diamond")
     plt.axis("equal")
     plt.legend()
     plt.show()

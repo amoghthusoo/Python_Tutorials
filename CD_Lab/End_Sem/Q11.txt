@@ -1,0 +1,20 @@
+def add(a, b):
+    r = a + b
+    return r
+
+def subtract(a, b):
+    r = a - b
+    return r
+
+a = 5
+b = 6
+add(a, b)
+
+if(a + b == 11):
+    print("reaching!!")
+elif(a + b == 10):
+    print("It is 10")
+elif(a + b == 9):
+    print("It is 9")
+else:
+    print("Default Block!!")

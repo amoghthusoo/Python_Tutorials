@@ -57,11 +57,8 @@ def inscribed_and_circumscribed_circles():
     plt.plot(triangle_out_x, triangle_out_y, color = "blue")
     plt.plot(rectangle_x, rectangle_y, color = "red")
     plt.axis("equal")
-    plt.legend()
     plt.show()
 
-
-    
 def main():
 
     print("Plotting, please wait...")
