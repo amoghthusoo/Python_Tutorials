@@ -1,6 +1,7 @@
 print()
 
-productions = ["S -> ABC", "A -> a/b/^", "B -> c/d/^", "C -> e/f/^"]
+productions = ["S -> ABC", "A -> a|b|^", "B -> c|d|^", "C -> e|f|^"]
+# productions = ["S -> Aa|b|^", "A -> D|a|^", "D -> S|d|^"]
 
 production_enhanced_1 = []
 for production in productions:
@@ -11,7 +12,7 @@ for production in productions:
 production_enhanced_2 = []
 
 for production in production_enhanced_1:
-    production_enhanced_2.append([production[0], production[1].split("/")])
+    production_enhanced_2.append([production[0], production[1].split("|")])
 
 productions = {}
 for production in production_enhanced_2:

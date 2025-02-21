@@ -1,0 +1,7 @@
+Data Communication refers to the process of exchanging data or information between two or more devices through a transmission medium such as
+wires, fiber optics, or wireless channels. It is a fundamental aspect of modern technology that enables the seamless flow of information across
+networks. Effective data communication requires five essential components: a sender (source of data), a receiver (destination), a message (the
+information being communicated), a transmission medium (the channel through which data travels), and a protocol (rules governing
+communication). The efficiency and reliability of data communication depend on factors like data rate, signal quality, and error-handling
+techniques. It is the backbone of networking, playing a critical role in various applications, from simple email exchanges to complex global
+communications systems like the internet.

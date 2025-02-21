@@ -1,4 +1,3 @@
-
 class FirstSet:
 
     def __init__(self, productions):

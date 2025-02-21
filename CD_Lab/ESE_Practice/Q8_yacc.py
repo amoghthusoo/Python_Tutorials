@@ -20,4 +20,4 @@ if(__name__ == "__main__"):
 
     parser = yacc.yacc()
     parser.parse(data)
-
+    print("Execution completed")

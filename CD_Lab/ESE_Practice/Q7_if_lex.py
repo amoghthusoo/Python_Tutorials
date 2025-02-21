@@ -14,7 +14,7 @@ t_IF = r"if"
 t_LPAREN = r"\("
 t_RPAREN = r"\)"
 t_OPERATOR = r"<|<=|>|>=|=="
-t_NUMBER = r"(\d+)(.)*(\d+)"
+t_NUMBER = r"[0-9]+"
 t_COLON = r":"
 
 def t_IDENTIFIER(t):
