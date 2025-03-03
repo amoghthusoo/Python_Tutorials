@@ -4,9 +4,7 @@ from cryptography.hazmat.primitives import serialization
 
 def load_public_key(file_path):
     with open(file_path, "rb") as f:
-        public_key = serialization.load_pem_public_key(
-            f.read()
-        )
+        public_key = serialization.load_pem_public_key(f.read())
     return public_key
 
 def verify_file(file_path, signature_path, public_key):
