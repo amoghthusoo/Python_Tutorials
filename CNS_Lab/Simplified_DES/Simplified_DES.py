@@ -145,17 +145,15 @@ def decrypt(C : str, K1 : str, K2 : str) -> str:
 ########################################################################################################################
 
 def main():
-    # P = "10100110"
-    # K = "1100101001"
+    P = "10100110"
+    K = "1100101001"
 
-    P = input("Enter the 8-bit plain text (binary) : ")
-    K = input("Enter the 10-bit key (binary) : ")
+    # P = input("Enter the 8-bit plain text (binary) : ")
+    # K = input("Enter the 10-bit key (binary) : ")
     print()
 
     K1, K2 = generate_keys(K)
-
     cipher_text = encrypt(P, K1, K2)
-
     decrypted_text = decrypt(cipher_text, K1, K2)
 
     print("Plain Text :", P)
