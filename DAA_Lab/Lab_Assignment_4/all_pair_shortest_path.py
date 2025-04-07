@@ -74,7 +74,7 @@ class All_Pair_Shortest_Path:
         # print(self.P)
         
 
-    def try_insert_node(self, path : list[int]) -> bool:
+    def try_insert_node(self, path):
         
         i = 0
         while(i < len(path) - 1):
