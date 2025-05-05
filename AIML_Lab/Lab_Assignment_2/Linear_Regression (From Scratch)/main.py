@@ -68,8 +68,7 @@ def main():
     y_pred = p.predict(X_test)
 
     error = Perceptron.calculate_mean_absolute_percentage_error(y_test, y_pred)
-    # print(f"Error : {error}")
-    print(f"Accuracy : {100 - error}")
+    print(f"Error : {error}")
 
 if(__name__ == "__main__"):
     main()
