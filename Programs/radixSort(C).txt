@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+void main(){
+
+    printf("\n");
+
+    int size = 7;
+    int arr[] = {23, 409, 56, 125, 985, 7, 98};
+    
+    int maxNum = arr[0];
+    for(int i = 0; i < size; i++){
+        
+        if(arr[i] > maxNum){
+            maxNum = arr[i];
+        }
+    }
+
+    int passes = 0;
+    while(maxNum != 0){
+        maxNum /= 10;
+        passes++;
+    }
+
+    int *interArr = (int*)calloc(size, sizeof(int));
+    for(int i = 1; i <= passes; i++){
+
+        int *freqArr = (int*)calloc(10, sizeof(int));
+
+        for(int j = 0; j < size; j++){
+
+            freqArr[(arr[j] % (int)pow(10, i)) / ((int)pow(10, i - 1))]++;
+        }
+
+        for(int j = 1; j < 10; j++){
+            freqArr[j] += freqArr[j - 1];
+        }
+
+        for(int j = size - 1; j >= 0; j--){
+
+            interArr[--freqArr[(arr[j] % (int)pow(10, i)) / ((int)pow(10, i - 1))]] = arr[j];
+        }
+
+        for(int j = 0; j < size; j++){
+            arr[j] = interArr[j];
+        }
+    }
+
+    for(int i = 0; i < size; i++){
+        printf("%d ", arr[i]);
+    }
+
+    printf("\n\n");
+}
