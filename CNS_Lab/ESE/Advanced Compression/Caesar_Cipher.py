@@ -1,0 +1,5 @@
+encrypt = lambda s, k = 3 : "".join([chr(((ord(e) - 97 + k) % 26) + 97) for e in s])
+decrypt = lambda c, k = 3 : "".join([chr(((ord(e) - 97 - k) % 26) + 97) for e in c])
+cipher_text = encrypt(input("Enter the plain text : "))
+plain_text = decrypt(cipher_text)
+print(f"Cipher Text : {cipher_text}", f"Plain Text : {plain_text}", sep="\n")
