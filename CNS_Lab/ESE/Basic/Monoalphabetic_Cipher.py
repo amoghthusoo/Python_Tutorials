@@ -1,27 +1,18 @@
 from random import shuffle
-from copy import deepcopy
-
-alphabets = [chr(e) for e in range(97, 123)]
-permutation = deepcopy(alphabets)
+permutation = [chr(e) for e in range(97, 123)]
 shuffle(permutation)
-
-encrypt_dict = dict(zip(alphabets, permutation))
-decrypt_dict = dict(zip(permutation, alphabets))
-
-def encrypt(s):
-
+encrypt_dict = dict(zip([chr(e) for e in range(97, 123)], permutation))
+decrypt_dict = dict(zip(permutation, [chr(e) for e in range(97, 123)]))
+def encrypt(p):
     c = ""
-    for e in s:
+    for e in p:
         c += encrypt_dict[e]
     return c
-
-def decrypt(s):
-
+def decrypt(c):
     p = ""
-    for e in s:
+    for e in c:
         p += decrypt_dict[e]
     return p
-
 input_text = input("Enter the plain text : ")
 cipher_text = encrypt(input_text)
 plain_text = decrypt(cipher_text)
