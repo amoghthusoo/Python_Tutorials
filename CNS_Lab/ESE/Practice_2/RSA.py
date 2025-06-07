@@ -11,16 +11,15 @@ for i in range(2, phi):
 
 i = 1
 while(True):
+    
     if(((phi * i) + 1) % e == 0):
         d = ((phi * i) + 1) // e
         break
+    
     i += 1
 
-M = 25
-
-cipher_text = int(M ** e) % n
-decrypted_text = int(cipher_text ** d) % n 
-
-print(f"Plain Text -> {M}")
-print(f"Cipher Text -> {cipher_text}")
-print(f"Decrypted Text -> {decrypted_text}")
+M = int(input("Enter a positive integer : "))
+C = int(M ** e) % n
+P = int(C ** d) % n
+print(C)
+print(P)

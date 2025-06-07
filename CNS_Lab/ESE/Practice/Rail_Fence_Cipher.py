@@ -1,33 +1,47 @@
 def encrypt(p):
-    part1 = ""
-    part2 = ""
-    for i in range(0, len(p), 2):
-        part1 += p[i]
+    part1 = part2 = ""
+    i = 0
+    while(i < len(p)):
+
+        try:
+            part1 += p[i]
+        except:
+            pass
+        
         try:
             part2 += p[i + 1]
         except:
             pass
+
+        i += 2
+
     return part1 + part2
+
 def decrypt(c):
-    p = ""
+
     if(len(c) % 2 == 0):
         mid = len(c) // 2
     else:
         mid = len(c) // 2 + 1
+
     part1 = c[0 : mid]
     part2 = c[mid : ]
-    for i in range(max(len(part1), len(part2))):
+
+    p = ""
+
+    for i in range(len(part1)):
+
+        p += part1[i]
+
         try:
-            p += part1[i]
-        except:
-            pass
-        try:    
             p += part2[i]
         except:
             pass
+
     return p
+
 input_text = input("Enter the plain text : ")
 cipher_text = encrypt(input_text)
 plain_text = decrypt(cipher_text)
-print(f"Cipher Text : {cipher_text}")
-print(f"Plain Text : {plain_text}")
+print(cipher_text)
+print(plain_text)

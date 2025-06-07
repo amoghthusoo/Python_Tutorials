@@ -1,11 +1,12 @@
-import numpy as np
+def print_arr(arr, i):
 
-a = np.array([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-])
-print(a.ndim)
-print(a.shape)
-print(a.size)
-print(a.dtype)
+    if(i == len(arr)):
+        return
+
+    print_arr(arr, i + 1)
+    print(arr[i])
+
+
+
+arr = [1, 3, 2, 5, 4]
+print_arr(arr, 0)

@@ -4,6 +4,12 @@ for i in range(26):
     for j in range(i, i + 26):
         row.append(chr(j % 26 + 97))
     matrix.append(row)
+
+# for i in range(26):
+#     for j in range(26):
+#         print(matrix[i][j], end = " ")
+#     print()
+
 def encrypt(p, k):
     c = ""
     for i in range(len(p)):

@@ -16,7 +16,7 @@ while((phi * i + 1) % e != 0):
 
 d = (phi * i + 1) // e
 
-M = 50
+M = 25
 
 ct = int(M ** e) % n
 pt = int(ct ** d) % n

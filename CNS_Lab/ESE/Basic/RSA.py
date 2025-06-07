@@ -12,9 +12,8 @@ while(True):
         d = ((phi * i) + 1) // e
         break
     i += 1
-M = 14
+M = int(input("Enter an integer : "))
 cipher_text = int(M ** e) % n
-decrypted_text = int(cipher_text ** d) % n 
-print(f"Plain Text -> {M}")
-print(f"Cipher Text -> {cipher_text}")
-print(f"Decrypted Text -> {decrypted_text}")
+plain_text = int(cipher_text ** d) % n 
+print(f"Cipher Text : {cipher_text}")
+print(f"Plain Text : {plain_text}")
