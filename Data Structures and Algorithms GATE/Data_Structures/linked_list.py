@@ -42,7 +42,7 @@ class LinkedList:
         if(self.head is None):
             return None
         
-        elif(self.head.next == None):
+        elif(self.head.next is None):
             deleted_val = self.head.val
             self.head = self.rear = None
 
@@ -65,7 +65,7 @@ class LinkedList:
         else:
             ptr = self.head
 
-            while(ptr.next.next != None):
+            while(ptr.next.next is not None):
                 ptr = ptr.next
 
             deleted_val = ptr.next.val    
